@@ -6,8 +6,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.jhonatanrojas.cartmovies.R
-import com.jhonatanrojas.cartmovies.databinding.ActivityMainBinding
 import com.jhonatanrojas.cartmovies.ui.viewmodel.MainViewModel
 import com.jhonatanrojas.cartmovies.ui.viewmodel.MainViewModelFactory
 import dagger.android.AndroidInjection
@@ -25,25 +25,23 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
     @Inject
     lateinit var mainViewModel: MainViewModel
-    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setupBinding()
+        initNavigation()
+    }
+
+    private fun initNavigation() {
+        Navigation.findNavController(this,R.id.nav_host_fragment)
     }
 
     override fun supportFragmentInjector() = dispatchingAndroidInjector
 
 
     private fun setupBinding() {
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         mainViewModel = ViewModelProvider(this, mainViewModelFactory).get(mainViewModel::class.java)
-        binding.movieList = mainViewModel
-        mainViewModel.getMovies()
-        mainViewModel.movies.observe(
-            this,
-            Observer { mainViewModel.setMoviesInRecyclerAdapter(it) })
     }
 }

@@ -7,7 +7,7 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class ActivitiesBuilder {
 
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = [MovieModule::class])
     abstract fun bindMainActivity(): MainActivity
 
 }
