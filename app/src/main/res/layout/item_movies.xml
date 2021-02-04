@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        
+        <variable
+            name="position"
+            type="Integer" />
+        
+        <variable
+            name="itemMovie"
+            type="com.jhonatanrojas.cartmovies.ui.viewmodel.MainViewModel" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/name_pokemon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:text="@{itemMovie.getMovieAt(position).original_title}"
+            android:padding="10dp" />
+
+    </androidx.cardview.widget.CardView>
+</layout>
