@@ -13,7 +13,8 @@ import javax.inject.Singleton
         AppModule::class,
         ActivitiesBuilder::class,
         ModuleRepository::class,
-        ModuleNetwork::class]
+        ModuleNetwork::class,
+        LocalModule::class]
 )
 @Singleton
 interface AppComponent : AndroidInjector<MoveApplication> {

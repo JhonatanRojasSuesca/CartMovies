@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.jhonatanrojas.cartmovies.R
 import com.jhonatanrojas.cartmovies.databinding.FragmentHomeBinding
-import com.jhonatanrojas.cartmovies.ui.viewmodel.MainViewModel
+import com.jhonatanrojas.cartmovies.ui.viewmodel.HomeViewModel
 import com.jhonatanrojas.cartmovies.ui.viewmodel.MainViewModelFactory
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
@@ -18,7 +18,7 @@ import javax.inject.Inject
 class HomeFragment : Fragment() {
 
     @Inject
-    lateinit var mainViewModel: MainViewModel
+    lateinit var homeViewModel: HomeViewModel
 
     @Inject
     lateinit var mainViewModelFactory: MainViewModelFactory
@@ -34,11 +34,11 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         AndroidSupportInjection.inject(this)
-        mainViewModel = ViewModelProvider(this, mainViewModelFactory).get(mainViewModel::class.java)
-        bindingHomeFragment.movieList = mainViewModel
-        mainViewModel.getMovies()
-        mainViewModel.movies.observe(
+        homeViewModel = ViewModelProvider(this, mainViewModelFactory).get(homeViewModel::class.java)
+        bindingHomeFragment.movieList = homeViewModel
+        homeViewModel.getMoviesFromDatabase()
+        homeViewModel.movies.observe(
             viewLifecycleOwner,
-            Observer { mainViewModel.setMoviesInRecyclerAdapter(it) })
+            Observer { homeViewModel.setMoviesInRecyclerAdapter(it) })
     }
 }

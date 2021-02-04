@@ -7,10 +7,10 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.jhonatanrojas.cartmovies.BR
 import com.jhonatanrojas.cartmovies.data.models.Movie
-import com.jhonatanrojas.cartmovies.ui.viewmodel.MainViewModel
+import com.jhonatanrojas.cartmovies.ui.viewmodel.HomeViewModel
 
 
-class MovieAdapter internal constructor(var mainViewModel: MainViewModel, var resource: Int) :
+class MovieAdapter internal constructor(var homeViewModel: HomeViewModel, var resource: Int) :
     RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     private var movies: List<Movie> = mutableListOf()
@@ -24,7 +24,7 @@ class MovieAdapter internal constructor(var mainViewModel: MainViewModel, var re
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.setMoviesCard(mainViewModel, position)
+        holder.setMoviesCard(homeViewModel, position)
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -51,8 +51,8 @@ class MovieAdapter internal constructor(var mainViewModel: MainViewModel, var re
             this.binding = binding
         }
 
-        fun setMoviesCard(mainViewModel: MainViewModel, position: Int) {
-            binding?.setVariable(BR.itemMovie, mainViewModel)
+        fun setMoviesCard(homeViewModel: HomeViewModel, position: Int) {
+            binding?.setVariable(BR.itemMovie, homeViewModel)
             binding?.setVariable(BR.position, position)
             binding?.executePendingBindings()
         }

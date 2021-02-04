@@ -15,19 +15,29 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor(private val getMoviesUseCase: GetMoviesUseCase ) : ViewModel() {
+class HomeViewModel @Inject constructor(private val getMoviesUseCase: GetMoviesUseCase ) : ViewModel() {
 
     var movies: MutableLiveData<List<Movie>> = MutableLiveData()
     private var adapter : MovieAdapter? = null
 
-    fun getMovies(){
-        getMoviesUseCase.getMoviesFromApi(1)
+    init {
+        getMovies(1)
+    }
+    private fun getMovies(page: Int ){
+        getMoviesUseCase.getMoviesFromApi(page)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe{handlerMoviesResult(it) }
+            .subscribe()
     }
 
-    private fun handlerMoviesResult(result: Result) {
+    fun getMoviesFromDatabase(){
+        getMoviesUseCase.getMoviesFromDatabase()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe{handlerMoviesDatabaseResult(it)}
+    }
+
+    private fun handlerMoviesDatabaseResult(result: Result) {
         when(result){
             is Result.Success ->{
                 movies.postValue(result.data)
