@@ -13,19 +13,20 @@ import javax.inject.Singleton
         AppModule::class,
         ActivitiesBuilder::class,
         ModuleRepository::class,
-        ModuleNetwork::class])
+        ModuleNetwork::class]
+)
 @Singleton
-interface AppComponent: AndroidInjector<MoveApplication> {
+interface AppComponent : AndroidInjector<MoveApplication> {
 
     fun context(): Context
-    fun application():Application
+    fun application(): Application
 
     @Component.Builder
-    interface  Builder{
+    interface Builder {
 
-        fun build():AppComponent
+        fun build(): AppComponent
 
         @BindsInstance
-        fun application(moveApplication: MoveApplication):Builder
+        fun application(moveApplication: MoveApplication): Builder
     }
 }

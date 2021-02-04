@@ -27,18 +27,18 @@ class ModuleNetwork {
 
     @Provides
     @Singleton
-    fun provideOkhttpClientRama(interceptor: Interceptor):OkHttpClient{
+    fun provideOkhttpClientRama(interceptor: Interceptor): OkHttpClient {
         val okHttpClientBuilder = OkHttpClient.Builder()
         okHttpClientBuilder.addInterceptor(interceptor)
             .connectTimeout(100, TimeUnit.SECONDS)
-            .readTimeout(100,TimeUnit.SECONDS)
+            .readTimeout(100, TimeUnit.SECONDS)
 
         return okHttpClientBuilder.build()
     }
 
     @Provides
     @Singleton
-    fun provideLoggingInterceptor():Interceptor{
+    fun provideLoggingInterceptor(): Interceptor {
         val interceptor = HttpLoggingInterceptor(logger = HttpLoggingInterceptor.Logger.DEFAULT)
         interceptor.level = HttpLoggingInterceptor.Level.BODY
         return interceptor

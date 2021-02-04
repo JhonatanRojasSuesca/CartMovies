@@ -18,7 +18,7 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
     @Inject
-    lateinit var dispatchingAndroidInjector : DispatchingAndroidInjector<Fragment>
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
 
     @Inject
     lateinit var mainViewModelFactory: MainViewModelFactory
@@ -38,10 +38,12 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
 
     private fun setupBinding() {
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
-        mainViewModel = ViewModelProvider(this,mainViewModelFactory).get(mainViewModel::class.java)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        mainViewModel = ViewModelProvider(this, mainViewModelFactory).get(mainViewModel::class.java)
         binding.movieList = mainViewModel
         mainViewModel.getMovies()
-        mainViewModel.movies.observe(this, Observer { mainViewModel.setMoviesInRecyclerAdapter(it) })
+        mainViewModel.movies.observe(
+            this,
+            Observer { mainViewModel.setMoviesInRecyclerAdapter(it) })
     }
 }

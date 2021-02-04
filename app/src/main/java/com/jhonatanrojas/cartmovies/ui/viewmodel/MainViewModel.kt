@@ -21,10 +21,10 @@ class MainViewModel @Inject constructor(private val getMoviesUseCase: GetMoviesU
         getMoviesUseCase.getMoviesFromApi(1)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe{gestionar(it) }
+            .subscribe{handlerMoviesResult(it) }
     }
 
-    fun gestionar(result: Result) {
+    private fun handlerMoviesResult(result: Result) {
         when(result){
             is Result.Success ->{
                 movies.postValue(result.data)
@@ -33,8 +33,12 @@ class MainViewModel @Inject constructor(private val getMoviesUseCase: GetMoviesU
             is Result.Failure ->{
                 Log.e("mainviewModel", "mensaje incorrecto ${result.throwable}")
             }
+            Result.Loading -> {
+                Log.e("mainviewModel", "mensaje Loading ")
+            }
         }
     }
+
     fun getMovieAt(position:Int): Movie?{
         val movies: MutableLiveData<List<Movie>> = movies
         return movies.value?.get(position)

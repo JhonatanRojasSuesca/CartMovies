@@ -14,7 +14,7 @@ import com.jhonatanrojas.cartmovies.ui.viewmodel.MainViewModel
 class MovieAdapter internal constructor(var mainViewModel: MainViewModel, var resource: Int) :
     RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
-    protected var movies: List<Movie> = mutableListOf()
+    private var movies: List<Movie> = mutableListOf()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -32,7 +32,7 @@ class MovieAdapter internal constructor(var mainViewModel: MainViewModel, var re
         return getLayoutIdForPosition(position)
     }
 
-    fun getLayoutIdForPosition(position: Int): Int {
+    private fun getLayoutIdForPosition(position: Int): Int {
         return resource
     }
 

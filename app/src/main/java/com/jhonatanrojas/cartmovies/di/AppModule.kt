@@ -19,7 +19,8 @@ object AppModule {
     @Singleton
     @Provides
     @JvmStatic
-    fun provideContext(moveApplication: MoveApplication): Context = moveApplication.applicationContext
+    fun provideContext(moveApplication: MoveApplication): Context =
+        moveApplication.applicationContext
 
     @Singleton
     @Provides
@@ -29,12 +30,14 @@ object AppModule {
     @Provides
     @Singleton
     @JvmStatic
-    fun provideMainViewModelFactory(factory: MainViewModelFactory): ViewModelProvider.Factory = factory
+    fun provideMainViewModelFactory(factory: MainViewModelFactory): ViewModelProvider.Factory =
+        factory
 
     @Provides
     @Singleton
     @JvmStatic
-    fun provideMovieApiServices(retrofit: Retrofit): MoviesApi = retrofit.create(MoviesApi::class.java)
+    fun provideMovieApiServices(retrofit: Retrofit): MoviesApi =
+        retrofit.create(MoviesApi::class.java)
 
 
 }
