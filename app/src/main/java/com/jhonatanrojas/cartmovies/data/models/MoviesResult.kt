@@ -9,9 +9,9 @@ data class MoviesResult(
 
 
 data class Movie(
-    @SerializedName("backdrop_path") val backdropPath: String?,
+    @SerializedName("backdrop_path") val backdrop_path: String?,
     @SerializedName("id") val id : Int,
     @SerializedName("original_title") val original_title: String,
     @SerializedName("overview") val overview: String,
-    @SerializedName("poster_path") val posterPath: String,
+    @SerializedName("poster_path") val poster_path: String,
 )

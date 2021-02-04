@@ -1,13 +1,16 @@
 package com.jhonatanrojas.cartmovies.ui.viewmodel
 
 import android.util.Log
+import androidx.databinding.BindingAdapter
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.jhonatanrojas.cartmovies.R
 import com.jhonatanrojas.cartmovies.core.Result
+import com.jhonatanrojas.cartmovies.core.utils.loadMovieImage
 import com.jhonatanrojas.cartmovies.data.models.Movie
 import com.jhonatanrojas.cartmovies.domain.useCase.GetMoviesUseCase
 import com.jhonatanrojas.cartmovies.ui.adapter.MovieAdapter
+import com.jhonatanrojas.cartmovies.ui.component.AspectRatioImageView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
@@ -52,4 +55,9 @@ class MainViewModel @Inject constructor(private val getMoviesUseCase: GetMoviesU
         adapter = MovieAdapter(this, R.layout.item_movies)
         return  adapter
     }
+}
+
+@BindingAdapter("imageUrl")
+fun getImageCouponAt(imgMovie: AspectRatioImageView, imageUrl: String ){
+    imgMovie.loadMovieImage(imageUrl)
 }

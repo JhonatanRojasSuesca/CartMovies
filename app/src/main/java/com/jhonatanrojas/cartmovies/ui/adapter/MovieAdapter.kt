@@ -7,7 +7,6 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.jhonatanrojas.cartmovies.BR
 import com.jhonatanrojas.cartmovies.data.models.Movie
-import com.jhonatanrojas.cartmovies.databinding.ItemMoviesBinding
 import com.jhonatanrojas.cartmovies.ui.viewmodel.MainViewModel
 
 
