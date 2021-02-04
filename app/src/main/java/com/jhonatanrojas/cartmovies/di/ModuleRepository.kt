@@ -11,5 +11,7 @@ import javax.inject.Singleton
 class ModuleRepository {
     @Provides
     @Singleton
-    fun providerMoviesRepository( movieApi: MovieApi): IMovieRepository { return MovieRepositoryImpl(movieApi) }
+    fun providerMoviesRepository(movieApi: MovieApi): IMovieRepository {
+        return MovieRepositoryImpl(movieApi)
+    }
 }

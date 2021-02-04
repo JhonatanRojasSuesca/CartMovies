@@ -4,5 +4,5 @@ import com.jhonatanrojas.cartmovies.data.models.MoviesResult
 import io.reactivex.Observable
 
 interface IMovieRepository {
-    fun getMovies(page : Int) : Observable<MoviesResult>
+    fun getMovies(page: Int): Observable<MoviesResult>
 }
