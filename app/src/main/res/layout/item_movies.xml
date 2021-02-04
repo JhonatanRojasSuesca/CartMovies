@@ -9,7 +9,7 @@
 
         <variable
             name="itemMovie"
-            type="com.jhonatanrojas.cartmovies.ui.viewmodel.MainViewModel" />
+            type="com.jhonatanrojas.cartmovies.ui.viewmodel.HomeViewModel" />
 
     </data>
 
