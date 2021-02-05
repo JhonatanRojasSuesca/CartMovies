@@ -2,7 +2,10 @@
     <string name="app_name">CartMovies</string>
 
     <string name="first_fragment_label">Home</string>
-    <string name="second_fragment_label">Detalle</string>
+    <string name="second_fragment_label">Detail</string>
     <string name="three_fragment_label">Cart</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
 
 </resources>

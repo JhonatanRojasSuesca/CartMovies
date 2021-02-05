@@ -13,8 +13,15 @@ class GetMoviesUseCase @Inject constructor(private val iMovieRepository: IMovieR
             .startWith(Result.Loading)
     }
 
-    fun getMoviesFromDatabase(): Observable<Result>{
+    fun getMoviesFromDatabase(): Observable<Result> {
         return iMovieRepository.getMoviesDatabase()
+            .map { Result.Success(it) as Result }
+            .onErrorReturn { Result.Failure(it) }
+            .startWith(Result.Loading)
+    }
+
+    fun getMovieFromDatabaseById(id: Int): Observable<Result> {
+        return iMovieRepository.getMovieDatabaseById(id)
             .map { Result.Success(it) as Result }
             .onErrorReturn { Result.Failure(it) }
             .startWith(Result.Loading)

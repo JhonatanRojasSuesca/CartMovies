@@ -7,18 +7,23 @@ import com.jhonatanrojas.cartmovies.data.models.MoviesResult
 import com.jhonatanrojas.cartmovies.domain.repository.IMovieRepository
 import io.reactivex.Observable
 
-class MovieRepositoryImpl(private val movieApi: MovieApi, private val movieDao: MovieDao) : IMovieRepository{
+class MovieRepositoryImpl(private val movieApi: MovieApi, private val movieDao: MovieDao) :
+    IMovieRepository {
     override fun getMovies(page: Int): Observable<MoviesResult> {
-       return movieApi.getMovies(page).doOnNext { it->
-           it.items.forEach { movie-> insertMoviesDB(movie) }
-       }
+        return movieApi.getMovies(page).doOnNext { it ->
+            it.items.forEach { movie -> insertMoviesDB(movie) }
+        }
     }
 
     override fun getMoviesDatabase(): Observable<List<Movie>> {
-       return movieDao.getAll()
+        return movieDao.getAll()
     }
 
-    override fun insertMoviesDB(movie:Movie) {
+    override fun getMovieDatabaseById(id: Int): Observable<Movie> {
+        return movieDao.getMovieById(id)
+    }
+
+    override fun insertMoviesDB(movie: Movie) {
         movieDao.insertMovies(movie)
     }
 

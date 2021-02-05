@@ -7,7 +7,7 @@
 
         <variable
             name="movieList"
-            type="com.jhonatanrojas.cartmovies.ui.viewmodel.HomeViewModel" />
+            type="com.jhonatanrojas.cartmovies.ui.viewmodel.home.HomeViewModel" />
 
     </data>
 

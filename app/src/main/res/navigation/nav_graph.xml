@@ -34,7 +34,7 @@
     <fragment
         android:id="@+id/CartFragment"
         android:name="com.jhonatanrojas.cartmovies.ui.fragment.CartFragment"
-        android:label="@string/second_fragment_label"
+        android:label="@string/three_fragment_label"
         tools:layout="@layout/fragment_cart">
 
         <action
