@@ -27,6 +27,14 @@ class MovieRepositoryImpl(private val movieApi: MovieApi, private val movieDao: 
        movieDao.updateMovies(movie)
     }
 
+    override fun updateMovieAddCart(id: Int, isCart: Boolean) {
+       movieDao.updateMovieAddCart(id, isCart)
+    }
+
+    override fun updateAllMovieDeleteCart(isCart: Boolean) {
+       movieDao.updateAllMovieDeleteCart(isCart)
+    }
+
     override fun insertMoviesDB(movie: Movie) {
         movieDao.insertMovies(movie)
     }
