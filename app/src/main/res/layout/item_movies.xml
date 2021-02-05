@@ -75,7 +75,7 @@
                 android:padding="3dp"
                 app:visibilityDelete="@{itemMovie.getMovieAt(position).isAddCart}"
                 android:text="Eliminar"
-                android:onClick="@{()-> itemMovie.insertMovieCart(position)}"
+                android:onClick="@{()-> itemMovie.deleteMovieCart(position)}"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
                 android:textColor="@android:color/black" />
         </LinearLayout>
