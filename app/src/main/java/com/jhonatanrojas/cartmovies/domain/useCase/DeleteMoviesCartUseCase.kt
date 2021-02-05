@@ -11,4 +11,8 @@ class DeleteMoviesCartUseCase @Inject constructor(private val iCartMovieReposito
     fun deleteCartMovie(movie: CartMovie) {
         return iCartMovieRepository.deleteCartMovie(movie)
     }
+
+    fun deleteAllCartMovie() {
+        return iCartMovieRepository.deleteAllCartMovie()
+    }
 }

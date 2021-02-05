@@ -55,6 +55,14 @@ class CartViewModel @Inject constructor(private val getCartMoviesUseCase: GetMov
             .subscribe().addTo(compositeDisposable)
     }
 
+    fun deleteAllMovieCart() {
+        Completable.fromAction {
+            deleteMoviesCartUseCase.deleteAllCartMovie()
+        }.subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe().addTo(compositeDisposable)
+    }
+
     fun getMovieAt(position: Int): CartMovie? {
         val movies: MutableLiveData<List<CartMovie>> = cartMovies
         return movies.value?.get(position)

@@ -14,4 +14,7 @@ interface CartMovieDao {
 
     @Delete
     fun deleteCartMovie(cartMovie: CartMovie)
+
+    @Query("DELETE FROM cartMovie")
+    fun deleteAllCartMovie()
 }
