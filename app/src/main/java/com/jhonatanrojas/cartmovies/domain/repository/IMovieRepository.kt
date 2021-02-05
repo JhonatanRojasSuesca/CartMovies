@@ -7,5 +7,6 @@ import io.reactivex.Observable
 interface IMovieRepository {
     fun getMovies(page: Int): Observable<MoviesResult>
     fun getMoviesDatabase(): Observable<List<Movie>>
-    fun insertMoviesDB(movie:Movie)
+    fun getMovieDatabaseById(id: Int): Observable<Movie>
+    fun insertMoviesDB(movie: Movie)
 }

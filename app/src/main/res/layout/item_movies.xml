@@ -9,7 +9,7 @@
 
         <variable
             name="itemMovie"
-            type="com.jhonatanrojas.cartmovies.ui.viewmodel.HomeViewModel" />
+            type="com.jhonatanrojas.cartmovies.ui.viewmodel.home.HomeViewModel" />
 
     </data>
 
@@ -24,8 +24,9 @@
             android:id="@+id/movieCover"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:imageUrl="@{itemMovie.getMovieAt(position).poster_path}"
+            android:onClick="@{()-> itemMovie.goToDetail(position)}"
             android:scaleType="centerCrop"
+            app:imageUrl="@{itemMovie.getMovieAt(position).poster_path}"
             app:ratio="1.5" />
 
         <TextView
@@ -35,10 +36,11 @@
             android:layout_gravity="center"
             android:background="@android:color/holo_blue_bright"
             android:gravity="center"
-            android:text="@{itemMovie.getMovieAt(position).original_title}"
             android:lines="2"
             android:minLines="2"
+            android:onClick="@{()-> itemMovie.goToDetail(position)}"
             android:padding="8dp"
+            android:text="@{itemMovie.getMovieAt(position).original_title}"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse" />
 
         <TextView

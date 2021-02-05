@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--GENERAL SIZE-->
+    <dimen name="dimen70">70dp</dimen>
+    <dimen name="dimen100">100dp</dimen>
+
+
+</resources>

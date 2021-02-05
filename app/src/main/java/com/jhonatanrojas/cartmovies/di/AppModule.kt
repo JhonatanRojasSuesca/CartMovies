@@ -3,11 +3,9 @@ package com.jhonatanrojas.cartmovies.di
 import android.app.Application
 import android.content.Context
 import androidx.lifecycle.ViewModelProvider
-import com.jhonatanrojas.cartmovies.data.api.MovieApi
-import com.jhonatanrojas.cartmovies.data.repository.MovieRepositoryImpl
 import com.jhonatanrojas.cartmovies.data.services.MoviesApi
-import com.jhonatanrojas.cartmovies.domain.repository.IMovieRepository
-import com.jhonatanrojas.cartmovies.ui.viewmodel.MainViewModelFactory
+import com.jhonatanrojas.cartmovies.ui.viewmodel.detail.DetailViewModelFactory
+import com.jhonatanrojas.cartmovies.ui.viewmodel.home.HomeViewModelFactory
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -30,7 +28,13 @@ object AppModule {
     @Provides
     @Singleton
     @JvmStatic
-    fun provideMainViewModelFactory(factory: MainViewModelFactory): ViewModelProvider.Factory =
+    fun provideMainViewModelFactory(factory: HomeViewModelFactory): ViewModelProvider.Factory =
+        factory
+
+    @Provides
+    @Singleton
+    @JvmStatic
+    fun provideDetailViewModelFactory(factory: DetailViewModelFactory): ViewModelProvider.Factory =
         factory
 
     @Provides

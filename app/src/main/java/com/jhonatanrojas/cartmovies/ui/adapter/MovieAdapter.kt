@@ -7,7 +7,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.jhonatanrojas.cartmovies.BR
 import com.jhonatanrojas.cartmovies.data.models.Movie
-import com.jhonatanrojas.cartmovies.ui.viewmodel.HomeViewModel
+import com.jhonatanrojas.cartmovies.ui.viewmodel.home.HomeViewModel
 
 
 class MovieAdapter internal constructor(var homeViewModel: HomeViewModel, var resource: Int) :
