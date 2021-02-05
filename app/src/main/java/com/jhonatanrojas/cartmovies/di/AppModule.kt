@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import com.jhonatanrojas.cartmovies.data.services.MoviesApi
+import com.jhonatanrojas.cartmovies.ui.viewmodel.cart.CartViewModelFactory
 import com.jhonatanrojas.cartmovies.ui.viewmodel.detail.DetailViewModelFactory
 import com.jhonatanrojas.cartmovies.ui.viewmodel.home.HomeViewModelFactory
 import dagger.Module
@@ -35,6 +36,11 @@ object AppModule {
     @Singleton
     @JvmStatic
     fun provideDetailViewModelFactory(factory: DetailViewModelFactory): ViewModelProvider.Factory =
+        factory
+    @Provides
+    @Singleton
+    @JvmStatic
+    fun provideCartViewModelFactory(factory: CartViewModelFactory): ViewModelProvider.Factory =
         factory
 
     @Provides

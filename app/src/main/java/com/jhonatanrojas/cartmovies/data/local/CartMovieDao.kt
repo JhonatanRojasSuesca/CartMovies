@@ -5,7 +5,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.jhonatanrojas.cartmovies.data.models.CartMovie
-import io.reactivex.Completable
 import io.reactivex.Observable
 
 @Dao
@@ -14,5 +13,5 @@ interface CartMovieDao {
     fun getAll(): Observable<List<CartMovie>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertMovies(cartMovie: CartMovie) : Completable
+    fun insertMovies(cartMovie: CartMovie)
 }

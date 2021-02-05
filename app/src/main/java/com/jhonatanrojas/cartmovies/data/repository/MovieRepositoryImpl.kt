@@ -23,6 +23,10 @@ class MovieRepositoryImpl(private val movieApi: MovieApi, private val movieDao: 
         return movieDao.getMovieById(id)
     }
 
+    override fun updateMovieDB(movie: Movie) {
+       movieDao.updateMovies(movie)
+    }
+
     override fun insertMoviesDB(movie: Movie) {
         movieDao.insertMovies(movie)
     }

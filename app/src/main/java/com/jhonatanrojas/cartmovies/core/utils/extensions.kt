@@ -1,6 +1,8 @@
 package com.jhonatanrojas.cartmovies.core.utils
 
+import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.jhonatanrojas.cartmovies.data.models.CartMovie
 import com.jhonatanrojas.cartmovies.data.models.Movie
@@ -15,6 +17,7 @@ fun AspectRatioImageView.loadMovieImage(path: String) {
         .load(URL_BASE_IMG + path)
         .into(this)
 }
+
 fun ImageView.loadMovieImage(path: String) {
     Glide
         .with(this.context)
@@ -32,3 +35,16 @@ fun Movie.toCartMovie() = CartMovie(
     poster_path,
     original_title
 )
+
+fun Movie.toUpdateAddCart(isAddCart: Boolean) = Movie(
+    id,
+    backdrop_path,
+    original_title,
+    overview,
+    poster_path,
+    isAddCart = isAddCart
+)
+
+fun TextView.setVisibility(isVisibility: Boolean) {
+    this.visibility = if (isVisibility) View.VISIBLE else View.GONE
+}
