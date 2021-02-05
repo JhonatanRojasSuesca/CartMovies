@@ -8,7 +8,7 @@ import com.jhonatanrojas.cartmovies.domain.repository.IMovieRepository
 
 import javax.inject.Inject
 
-class InsertMoviesCart @Inject constructor(private val iCartMovieRepository: ICartMovieRepository, private val iMovieRepository: IMovieRepository) {
+class InsertMoviesCartUseCase @Inject constructor(private val iCartMovieRepository: ICartMovieRepository, private val iMovieRepository: IMovieRepository) {
 
     fun insertCartMovie(movie: Movie) {
         iMovieRepository.updateMovieDB(movie.toUpdateAddCart(true))

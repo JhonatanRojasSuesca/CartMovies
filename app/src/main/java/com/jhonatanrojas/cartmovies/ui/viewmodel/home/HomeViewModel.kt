@@ -1,6 +1,5 @@
 package com.jhonatanrojas.cartmovies.ui.viewmodel.home
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.jhonatanrojas.cartmovies.R
@@ -9,7 +8,7 @@ import com.jhonatanrojas.cartmovies.core.utils.SingleLiveData
 import com.jhonatanrojas.cartmovies.core.utils.addTo
 import com.jhonatanrojas.cartmovies.data.models.Movie
 import com.jhonatanrojas.cartmovies.domain.useCase.GetMoviesUseCase
-import com.jhonatanrojas.cartmovies.domain.useCase.InsertMoviesCart
+import com.jhonatanrojas.cartmovies.domain.useCase.InsertMoviesCartUseCase
 import com.jhonatanrojas.cartmovies.ui.adapter.MovieAdapter
 import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -17,7 +16,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-class HomeViewModel @Inject constructor(private val getMoviesUseCase: GetMoviesUseCase, private val insertMoviesCart: InsertMoviesCart) : ViewModel() {
+class HomeViewModel @Inject constructor(private val getMoviesUseCase: GetMoviesUseCase, private val insertMoviesCartUseCase: InsertMoviesCartUseCase) : ViewModel() {
 
 
     var movies: SingleLiveData<List<Movie>> = SingleLiveData()
@@ -74,7 +73,7 @@ class HomeViewModel @Inject constructor(private val getMoviesUseCase: GetMoviesU
     fun insertMovieCart(position: Int) {
         Completable.fromAction {
             getMovieAt(position)?.let {
-                insertMoviesCart.insertCartMovie(it)
+                insertMoviesCartUseCase.insertCartMovie(it)
             }
         }.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
