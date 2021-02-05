@@ -1,6 +1,7 @@
 package com.jhonatanrojas.cartmovies.di
 
 import androidx.room.Room
+import com.jhonatanrojas.cartmovies.data.local.CartMovieDao
 import com.jhonatanrojas.cartmovies.data.local.MovieDao
 import com.jhonatanrojas.cartmovies.data.local.MovieDatabase
 import dagger.Module
@@ -20,4 +21,8 @@ class LocalModule {
     @Provides
     @Singleton
     fun providerDatabaseMovieDao(database: MovieDatabase) : MovieDao = database.movieDao()
+
+    @Provides
+    @Singleton
+    fun providerDatabaseCartMovieDao(database: MovieDatabase) : CartMovieDao = database.cartMovieDao()
 }

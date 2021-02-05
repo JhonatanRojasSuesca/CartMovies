@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
         navController = findNavController(R.id.nav_host_fragment)
-        setupActionBarWithNavController(navController)
         navView.setupWithNavController(navController)
     }
 
