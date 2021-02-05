@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.jhonatanrojas.cartmovies.R
 import com.jhonatanrojas.cartmovies.core.Result
+import com.jhonatanrojas.cartmovies.core.utils.SingleLiveData
 import com.jhonatanrojas.cartmovies.core.utils.addTo
 import com.jhonatanrojas.cartmovies.data.models.Movie
 import com.jhonatanrojas.cartmovies.domain.useCase.GetMoviesUseCase
@@ -17,14 +18,11 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(private val getMoviesUseCase: GetMoviesUseCase) :
     ViewModel() {
 
-    var movies: MutableLiveData<List<Movie>> = MutableLiveData()
+    var movies: SingleLiveData<List<Movie>> = SingleLiveData()
     var idMovie: MutableLiveData<Int> = MutableLiveData()
     private var adapter: MovieAdapter? = null
     private val compositeDisposable = CompositeDisposable()
 
-    init {
-        getMovies(1)
-    }
 
     private fun getMovies(page: Int) {
         getMoviesUseCase.getMoviesFromApi(page)
@@ -44,6 +42,7 @@ class HomeViewModel @Inject constructor(private val getMoviesUseCase: GetMoviesU
         when (result) {
             is Result.Success -> {
                 movies.postValue((result.data) as List<Movie>)
+                if((result.data as List<Movie>).isEmpty()) getMovies(1)
                 Log.e("mainviewModel", "mensaje correcto ${result.data}")
             }
             is Result.Failure -> {
