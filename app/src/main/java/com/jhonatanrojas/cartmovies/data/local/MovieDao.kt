@@ -1,9 +1,6 @@
 package com.jhonatanrojas.cartmovies.data.local
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.jhonatanrojas.cartmovies.data.models.Movie
 import io.reactivex.Observable
 
@@ -18,6 +15,9 @@ interface MovieDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertMovies(movies: Movie)
+
+    @Update(onConflict = OnConflictStrategy.IGNORE)
+    fun updateMovies(movies: Movie)
 
     @Query("SELECT * FROM Movie where id = :id")
     fun getMovieById(id: Int) : Observable<Movie>

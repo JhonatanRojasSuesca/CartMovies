@@ -23,4 +23,5 @@ data class Movie(
     @SerializedName("overview") val overview: String,
     @ColumnInfo(name = "poster_path")
     @SerializedName("poster_path") val poster_path: String,
+    @ColumnInfo(name= "cart") val isAddCart : Boolean = false
 )
