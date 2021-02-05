@@ -5,5 +5,6 @@ import io.reactivex.Observable
 
 interface ICartMovieRepository {
     fun insertMoviesCartDB(movie: CartMovie)
+    fun deleteCartMovie(movie: CartMovie)
     fun getAllCart(): Observable<List<CartMovie>>
 }

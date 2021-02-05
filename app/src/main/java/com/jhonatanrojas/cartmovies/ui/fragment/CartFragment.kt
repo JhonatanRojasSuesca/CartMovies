@@ -47,12 +47,11 @@ class CartFragment : Fragment() {
             viewLifecycleOwner,
             Observer {
                 if (it.isNotEmpty()) {
-                    cartViewModel.setMoviesInRecyclerAdapter(it)
                     bindingCartFragment.messageEmpty.visibility = View.GONE
                 } else {
                     bindingCartFragment.messageEmpty.visibility = View.VISIBLE
                 }
-
+                cartViewModel.setMoviesInRecyclerAdapter(it)
             })
         cartViewModel.idMovie.observe(
             viewLifecycleOwner,

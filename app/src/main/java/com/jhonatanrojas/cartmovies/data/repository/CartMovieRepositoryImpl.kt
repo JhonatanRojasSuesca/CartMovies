@@ -12,6 +12,10 @@ class CartMovieRepositoryImpl(private val cartMovieDao: CartMovieDao) :
         return cartMovieDao.insertMovies(movie)
     }
 
+    override fun deleteCartMovie(movie: CartMovie) {
+        return cartMovieDao.deleteCartMovie(movie)
+    }
+
     override fun getAllCart(): Observable<List<CartMovie>> {
        return cartMovieDao.getAll()
     }

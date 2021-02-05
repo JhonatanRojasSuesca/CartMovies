@@ -1,9 +1,6 @@
 package com.jhonatanrojas.cartmovies.data.local
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.jhonatanrojas.cartmovies.data.models.CartMovie
 import io.reactivex.Observable
 
@@ -14,4 +11,7 @@ interface CartMovieDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertMovies(cartMovie: CartMovie)
+
+    @Delete
+    fun deleteCartMovie(cartMovie: CartMovie)
 }
