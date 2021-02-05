@@ -9,10 +9,12 @@ import javax.inject.Inject
 class DeleteMoviesCartUseCase @Inject constructor(private val iCartMovieRepository: ICartMovieRepository, private val iMovieRepository: IMovieRepository) {
 
     fun deleteCartMovie(movie: CartMovie) {
-        return iCartMovieRepository.deleteCartMovie(movie)
+        iMovieRepository.updateMovieAddCart(movie.id, false)
+        iCartMovieRepository.deleteCartMovie(movie)
     }
 
     fun deleteAllCartMovie() {
-        return iCartMovieRepository.deleteAllCartMovie()
+        iMovieRepository.updateAllMovieDeleteCart(false)
+        iCartMovieRepository.deleteAllCartMovie()
     }
 }

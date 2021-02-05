@@ -9,5 +9,7 @@ interface IMovieRepository {
     fun getMoviesDatabase(): Observable<List<Movie>>
     fun getMovieDatabaseById(id: Int): Observable<Movie>
     fun updateMovieDB(movie: Movie)
+    fun updateMovieAddCart(id: Int, isCart: Boolean)
+    fun updateAllMovieDeleteCart(isCart: Boolean)
     fun insertMoviesDB(movie: Movie)
 }

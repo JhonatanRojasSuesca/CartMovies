@@ -11,7 +11,7 @@ import javax.inject.Inject
 class InsertMoviesCartUseCase @Inject constructor(private val iCartMovieRepository: ICartMovieRepository, private val iMovieRepository: IMovieRepository) {
 
     fun insertCartMovie(movie: Movie) {
-        iMovieRepository.updateMovieDB(movie.toUpdateAddCart(true))
-        return iCartMovieRepository.insertMoviesCartDB(movie.toCartMovie())
+        iMovieRepository.updateMovieAddCart(movie.id, true)
+        iCartMovieRepository.insertMoviesCartDB(movie.toCartMovie())
     }
 }
