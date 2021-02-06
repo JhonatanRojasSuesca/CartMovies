@@ -7,7 +7,7 @@ import io.reactivex.Observable
 
 import javax.inject.Inject
 
-class GetMoviesCartUseCase @Inject constructor(private val iCartMovieRepository: ICartMovieRepository, private val iMovieRepository: IMovieRepository) {
+class GetMoviesCartUseCase @Inject constructor(private val iCartMovieRepository: ICartMovieRepository) {
 
     fun getCartMoviesFromDatabase(): Observable<Result> {
         return iCartMovieRepository.getAllCart()
