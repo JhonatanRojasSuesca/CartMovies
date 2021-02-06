@@ -10,6 +10,7 @@ git clone https://JhonatanRojasSuesca6@bitbucket.org/JhonatanRojasSuesca6/cartmo
 https://jhonatan.com/557
 
 https://jhonatan.com/283995
+
 * para Los posible Links erroneos son los siguientes
 
 https://jhonatan.com/es-es
@@ -58,6 +59,6 @@ Se implemento con la base de datos Room donde se inicia en dagger y los Dao esta
 
 ### Se implemento Navigation para el paso entre pantallas
 
-<div align="center">
-    <img src="D:\yotas\descargas\a1" width="400px"</img>
-</div>
+![Screenshot](D:\yotas\descargas\a5)
+
+
