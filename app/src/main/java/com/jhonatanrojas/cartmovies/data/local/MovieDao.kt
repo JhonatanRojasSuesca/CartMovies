@@ -20,7 +20,7 @@ interface MovieDao {
     fun updateMovies(movies: Movie)
 
     @Query("SELECT * FROM Movie where id = :id")
-    fun getMovieById(id: Int): Observable<Movie>
+    fun getMovieById(id: Int): Observable<List<Movie>>
 
     @Query("UPDATE  Movie  SET cart= :isCart WHERE id = :id ")
     fun updateMovieAddCart(id: Int, isCart: Boolean)

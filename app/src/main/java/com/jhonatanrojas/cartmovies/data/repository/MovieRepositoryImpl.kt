@@ -19,7 +19,7 @@ class MovieRepositoryImpl(private val movieApi: MovieApi, private val movieDao: 
         return movieDao.getAll()
     }
 
-    override fun getMovieDatabaseById(id: Int): Observable<Movie> {
+    override fun getMovieDatabaseById(id: Int): Observable<List<Movie>> {
         return movieDao.getMovieById(id)
     }
 
