@@ -59,6 +59,12 @@ Se implemento con la base de datos Room donde se inicia en dagger y los Dao esta
 
 ### Se implemento Navigation para el paso entre pantallas
 
-![Screenshot](D:\yotas\descargas\a5)
+![Screenshot](https://postimg.cc/xJ3C7WKg)
+![Screenshot](https://postimg.cc/njJr3HQC)
+![Screenshot](https://postimg.cc/JH7nWPx8)
+![Screenshot](https://postimg.cc/14y463Qd)
+![Screenshot](https://postimg.cc/qtngctqP)
+
+
 
 
