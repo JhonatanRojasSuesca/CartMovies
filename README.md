@@ -66,5 +66,11 @@ Se implemento con la base de datos Room donde se inicia en dagger y los Dao esta
 ![Screenshot](https://i.postimg.cc/CKrDgkgx/a5.jpg)
 
 
+## ScrennShot Inspector Layout
+
+![Screenshot](https://i.postimg.cc/qqNxSrZg/a1.png)
+![Screenshot](https://i.postimg.cc/hvN1qYHs/a2.png)
+![Screenshot](https://i.postimg.cc/BZzgD8XF/a3.png)
+
 
 
