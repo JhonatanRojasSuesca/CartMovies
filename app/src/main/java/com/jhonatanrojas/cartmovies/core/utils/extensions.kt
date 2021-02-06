@@ -36,15 +36,6 @@ fun Movie.toCartMovie() = CartMovie(
     original_title
 )
 
-fun Movie.toUpdateAddCart(isAddCart: Boolean) = Movie(
-    id,
-    backdrop_path,
-    original_title,
-    overview,
-    poster_path,
-    isAddCart = isAddCart
-)
-
 fun TextView.setVisibility(isVisibility: Boolean) {
     this.visibility = if (isVisibility) View.VISIBLE else View.GONE
 }

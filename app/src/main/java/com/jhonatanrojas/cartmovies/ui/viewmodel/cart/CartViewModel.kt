@@ -34,7 +34,6 @@ class CartViewModel @Inject constructor(private val getCartMoviesUseCase: GetMov
         when (result) {
             is Result.Success -> {
                 cartMovies.postValue(result.data as List<CartMovie>)
-                Log.e("mainviewModel", "mensaje Detalle ${(result.data) as List<CartMovie>}")
             }
             is Result.Failure -> {
                 Log.e("mainviewModel", "mensaje incorrecto ${result.throwable}")
