@@ -1,12 +1,11 @@
 package com.jhonatanrojas.cartmovies.ui.viewmodel.detail
 
-import android.util.Log
 import androidx.databinding.ObservableField
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.jhonatanrojas.cartmovies.core.Result
 import com.jhonatanrojas.cartmovies.core.utils.addTo
 import com.jhonatanrojas.cartmovies.core.utils.toCartMovie
-import com.jhonatanrojas.cartmovies.data.models.CartMovie
 import com.jhonatanrojas.cartmovies.data.models.Movie
 import com.jhonatanrojas.cartmovies.domain.useCase.DeleteMoviesCartUseCase
 import com.jhonatanrojas.cartmovies.domain.useCase.GetMoviesUseCase
@@ -22,6 +21,7 @@ class DetailViewModel @Inject constructor(private val getMoviesUseCase: GetMovie
 
     private val compositeDisposable = CompositeDisposable()
     var movie = ObservableField<Movie>()
+    var onErrorId: MutableLiveData<String> = MutableLiveData()
     fun getMovieById(id: Int) {
         getMoviesUseCase.getMovieFromDatabaseById(id)
             .subscribeOn(Schedulers.io())
@@ -33,13 +33,11 @@ class DetailViewModel @Inject constructor(private val getMoviesUseCase: GetMovie
         when (result) {
             is Result.Success -> {
                 movie.set(result.data as Movie)
-                Log.e("mainviewModel", "mensaje Detalle ${(result.data) as Movie}")
             }
             is Result.Failure -> {
-                Log.e("mainviewModel", "mensaje incorrecto ${result.throwable}")
+                onErrorId.postValue("Pelicula no Encontrada")
             }
             Result.Loading -> {
-                Log.e("mainviewModel", "mensaje Loading ")
             }
         }
     }
